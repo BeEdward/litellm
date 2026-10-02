@@ -188,6 +188,18 @@ export const AgentIdentityFields = ({ accessToken }: { accessToken: string | nul
                 <Input {...control} ref={ref} value={typeof value === "string" ? value : ""} onChange={onChange} />
               )}
             </AgentFormField>
+            <AgentFormField
+              name="identity_blueprint_id"
+              label="Agent ID Blueprint"
+              rules={{
+                pattern: { value: IDENTITY_UUID_PATTERN, message: "Enter a valid blueprint application UUID" },
+              }}
+              description="Optional. The Entra Agent ID blueprint application ID that created this agent identity. When set, tokens from agent identities of other blueprints are rejected"
+            >
+              {({ value, onChange, ref, ...control }) => (
+                <Input {...control} ref={ref} value={typeof value === "string" ? value : ""} onChange={onChange} />
+              )}
+            </AgentFormField>
 
             <AgentFormField
               name="identity_required_roles"
